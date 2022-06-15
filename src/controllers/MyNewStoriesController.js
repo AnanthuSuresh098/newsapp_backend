@@ -22,8 +22,7 @@ router.get("", async (req, res) => {
     await Promise.all(topstoryMap);
 
     return res.status(200).send({ TopStories: TopstoriesList });
-  } 
-  catch (err) {
+  } catch (err) {
     return res.status(500).send(err);
   }
 });

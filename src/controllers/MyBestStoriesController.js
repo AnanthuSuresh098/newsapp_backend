@@ -7,23 +7,22 @@ const router = express.Router();
 router.get("", async (req, res) => {
   try {
     let response = await axios.get(
-      `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`
+      `https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty`
     );
 
-    const TopstoriesList = [];
+    const BeststoriesList = [];
 
-    const topstoryMap = response.data.map(async (id) => {
+    const beststoryMap = response.data.map(async (id) => {
       let getstory = await axios.get(
         `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
       );
-      TopstoriesList.push(getstory.data);
+      BeststoriesList.push(getstory.data);
     });
 
-    await Promise.all(topstoryMap);
+    await Promise.all(beststoryMap);
 
-    return res.status(200).send({ TopStories: TopstoriesList });
-  } 
-  catch (err) {
+    return res.status(200).send({ BestStories: BeststoriesList });
+  } catch (err) {
     return res.status(500).send(err);
   }
 });
