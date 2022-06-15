@@ -12,10 +12,10 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/myTopStories", MyTopStoriesController);
+app.use("/topstories", MyTopStoriesController);
 
-app.use("/myBestStories", MyBestStoriesController);
+app.use("/beststories", MyBestStoriesController);
 
-app.use("/myNewStories", MyNewStoriesController);
+app.use("/newstories", MyNewStoriesController);
 
 module.exports = app;
