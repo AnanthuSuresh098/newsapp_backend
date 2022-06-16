@@ -12,6 +12,14 @@ const app = express();
 
 app.use(express.json());
 
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "https://newsapp-backend00.herokuapp.com/",
+  })
+);
+
 app.use("/topstories", MyTopStoriesController);
 
 app.use("/beststories", MyBestStoriesController);
