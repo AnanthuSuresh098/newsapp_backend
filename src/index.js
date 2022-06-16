@@ -10,11 +10,6 @@ const MyNewStoriesController = require("./controllers/MyNewStoriesController");
 
 const app = express();
 
-app.get("/cors", (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
-  res.send({ msg: "This has CORS enabled" });
-});
-
 app.use(express.json());
 
 app.use("/topstories", MyTopStoriesController);
